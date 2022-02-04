@@ -67,6 +67,7 @@
 		"@storybook/node-logger": "^6.4.14",
 		"@storybook/preset-create-react-app": "^4.0.0",
 		"@storybook/react": "^6.4.14",
+		"@types/styled-components": "^5.1.21",
 		"eslint": "^8.7.0",
 		"webpack": "^5.67.0"
 	},
