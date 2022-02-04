@@ -14,10 +14,19 @@ const DealContainer: VFC<DealContainerProps> = ({
 }: DealContainerProps) => {
   const { data, isLoading } = useData(breederId, dealId)
 
-  if (isLoading || !data?.advertising || !data?.breeder || !data?.deal || !data?.breeder || !data?.poultry) return null
+  if (isLoading || !data?.advertising || !data?.breeder ||
+    !data?.deal || !data?.poultry || !data?.events) {
+    return null
+  }
 
   return (
-    <Deal />
+    <Deal
+      advertising={data.advertising}
+      poultry={data.poultry}
+      events={data.events}
+      breeder={data.breeder}
+      deal={data.deal}
+    />
   )
 }
 

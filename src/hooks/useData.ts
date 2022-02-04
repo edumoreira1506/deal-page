@@ -2,7 +2,8 @@ import {
   IAdvertising,
   IPoultry,
   IBreeder,
-  IDeal
+  IDeal,
+  IDealEvent
 } from '@cig-platform/types'
 import { useQuery } from 'react-query'
 
@@ -13,6 +14,7 @@ interface Data {
   advertising: IAdvertising;
   breeder: IBreeder;
   deal: IDeal;
+  events: IDealEvent[];
 }
 
 export default function useData(breederId: string, dealId: string) {
