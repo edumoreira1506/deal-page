@@ -1,4 +1,4 @@
-import React, { VFC } from 'react'
+import React, { VFC, useMemo } from 'react'
 
 import useData from '../../hooks/useData'
 import Deal from '../../views/Deal'
@@ -14,8 +14,12 @@ const DealContainer: VFC<DealContainerProps> = ({
 }: DealContainerProps) => {
   const { data, isLoading } = useData(breederId, dealId)
 
+  const formattedEvents = useMemo(() => data?.events?.map(e => ({ ...e, createdAt: new Date(e.createdAt) })), [
+    data?.events
+  ])
+
   if (isLoading || !data?.advertising || !data?.breeder ||
-    !data?.deal || !data?.poultry || !data?.events) {
+    !data?.deal || !data?.poultry || !data?.events || !formattedEvents) {
     return null
   }
 
@@ -23,7 +27,7 @@ const DealContainer: VFC<DealContainerProps> = ({
     <Deal
       advertising={data.advertising}
       poultry={data.poultry}
-      events={data.events}
+      events={formattedEvents}
       breeder={data.breeder}
       deal={data.deal}
     />
