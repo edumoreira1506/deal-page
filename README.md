@@ -1,1 +1,1 @@
-## deals-page
+## deal-page

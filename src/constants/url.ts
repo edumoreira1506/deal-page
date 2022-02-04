@@ -1,0 +1,1 @@
+export const BACKOFFICE_BFF_API_URL = String(process.env.REACT_APP_BACKOFFICE_BFF_API_URL)
