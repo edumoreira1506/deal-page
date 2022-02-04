@@ -1166,10 +1166,10 @@
   resolved "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cig-platform/backoffice-bff-client@^0.0.34":
-  version "0.0.34"
-  resolved "https://registry.yarnpkg.com/@cig-platform/backoffice-bff-client/-/backoffice-bff-client-0.0.34.tgz#9475e22ab655829ba274a1b4441cd032b354a079"
-  integrity sha512-3HVj99Q2WxWjPykpscgG2SdfdemCfJrQN/vzNZpuNN9pMhgqBAqwa5kJU/xTo23fv7ai+/vsHXCFIRSRzs/lYw==
+"@cig-platform/backoffice-bff-client@^0.0.35":
+  version "0.0.35"
+  resolved "https://registry.yarnpkg.com/@cig-platform/backoffice-bff-client/-/backoffice-bff-client-0.0.35.tgz#41dfc69e91b3f30a8b3bffce9841ff2c65bd079e"
+  integrity sha512-whS/O5/dc3+seYWpy3TJJj+NVW2RMmXQ0D7QvxGkuJD7130jt27wpVgwWs2HjUIJsw5H6D48RMsGm0VI2NOphg==
   dependencies:
     "@cig-platform/decorators" "0.0.1"
     "@cig-platform/types" "0.0.26"
