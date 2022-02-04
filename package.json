@@ -5,6 +5,7 @@
 	"dependencies": {
 		"@cig-platform/backoffice-bff-client": "^0.0.35",
 		"@cig-platform/types": "^0.0.26",
+		"@cig-platform/ui": "^0.1.105",
 		"@testing-library/jest-dom": "^5.14.1",
 		"@testing-library/react": "^12.0.0",
 		"@testing-library/user-event": "^13.2.1",
