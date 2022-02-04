@@ -2,19 +2,21 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
-import App from './App'
+import DealContainer from './containers/DealContainer/DealContainer'
 
 const queryClient = new QueryClient()
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 type Callbacks = {}
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-type Params = {}
+type Params = {
+  breederId: string;
+  dealId: string;
+}
 
 (window as any).renderPoultryPage = (
   containerId: string,
-  _params: Params,
+  { breederId, dealId }: Params,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   _callbacks: Callbacks = {}
 ) => {
@@ -23,7 +25,7 @@ type Params = {}
   if (targetDocument) {
     ReactDOM.render(
       <QueryClientProvider client={queryClient}>
-        <App />
+        <DealContainer breederId={breederId} dealId={dealId} />
       </QueryClientProvider>,
       targetDocument,
     )
