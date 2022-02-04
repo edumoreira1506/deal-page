@@ -17,7 +17,7 @@ type Params = {
   dealId: string;
 }
 
-(window as any).renderPoultryPage = (
+(window as any).renderDealPage = (
   containerId: string,
   { breederId, dealId }: Params,
   { onFinishDeal, onConfirmDeal, onCancelDeal }: Callbacks = {}
@@ -40,7 +40,7 @@ type Params = {
   }
 };
 
-(window as any).unmountPoultryPage = (containerId: string) => {
+(window as any).unmountDealPage = (containerId: string) => {
   const targetDocument = document.getElementById(containerId)
 
   if (targetDocument) {
