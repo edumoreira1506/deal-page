@@ -4,6 +4,7 @@
 	"private": true,
 	"dependencies": {
 		"@cig-platform/backoffice-bff-client": "^0.0.35",
+		"@cig-platform/enums": "^0.0.3",
 		"@cig-platform/types": "^0.0.26",
 		"@cig-platform/ui": "^0.1.105",
 		"@testing-library/jest-dom": "^5.14.1",
