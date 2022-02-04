@@ -2,12 +2,15 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
-import DealContainer from './containers/DealContainer/DealContainer'
+import DealContainer, { DealContainerProps } from './containers/DealContainer/DealContainer'
 
 const queryClient = new QueryClient()
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-type Callbacks = {}
+type Callbacks = {
+  onConfirmDeal?: DealContainerProps['onConfirmDeal'];
+  onFinishDeal?: DealContainerProps['onFinishDeal'];
+  onCancelDeal?: DealContainerProps['onCancelDeal'];
+}
 
 type Params = {
   breederId: string;
@@ -17,15 +20,20 @@ type Params = {
 (window as any).renderPoultryPage = (
   containerId: string,
   { breederId, dealId }: Params,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  _callbacks: Callbacks = {}
+  { onFinishDeal, onConfirmDeal, onCancelDeal }: Callbacks = {}
 ) => {
   const targetDocument = document.getElementById(containerId)
 
   if (targetDocument) {
     ReactDOM.render(
       <QueryClientProvider client={queryClient}>
-        <DealContainer breederId={breederId} dealId={dealId} />
+        <DealContainer
+          onConfirmDeal={onConfirmDeal}
+          onFinishDeal={onFinishDeal}
+          onCancelDeal={onCancelDeal}
+          breederId={breederId}
+          dealId={dealId}
+        />
       </QueryClientProvider>,
       targetDocument,
     )

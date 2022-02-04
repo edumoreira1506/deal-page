@@ -10,3 +10,9 @@ export const StyledHistoryContainer = styled.div`
   width: 100%;
   margin-top: 20px;
 `
+
+export const StyledButton = styled.div`
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+`

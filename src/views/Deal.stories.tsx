@@ -1,5 +1,6 @@
 import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
 
 import Deal from './Deal'
 
@@ -84,5 +85,8 @@ Example.args = {
     tail: '',
     type: '',
     videos: {}
-  }
+  },
+  onCancelDeal: action('onCancelDeal'),
+  onFinishDeal: action('onFinishDeal'),
+  onConfirmDeal: action('onConfirmDeal'),
 }

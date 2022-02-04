@@ -1,16 +1,22 @@
 import React, { VFC, useMemo } from 'react'
 
 import useData from '../../hooks/useData'
-import Deal from '../../views/Deal'
+import Deal, { DealProps } from '../../views/Deal'
 
-type DealContainerProps = {
+export type DealContainerProps = {
   breederId: string;
   dealId: string;
+  onConfirmDeal?: DealProps['onConfirmDeal'];
+  onFinishDeal?: DealProps['onFinishDeal'];
+  onCancelDeal?: DealProps['onCancelDeal'];
 }
 
 const DealContainer: VFC<DealContainerProps> = ({
   breederId,
-  dealId
+  dealId,
+  onCancelDeal,
+  onConfirmDeal,
+  onFinishDeal
 }: DealContainerProps) => {
   const { data, isLoading } = useData(breederId, dealId)
 
@@ -30,6 +36,9 @@ const DealContainer: VFC<DealContainerProps> = ({
       events={formattedEvents}
       breeder={data.breeder}
       deal={data.deal}
+      onCancelDeal={onCancelDeal}
+      onConfirmDeal={onConfirmDeal}
+      onFinishDeal={onFinishDeal}
     />
   )
 }
