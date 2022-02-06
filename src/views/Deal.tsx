@@ -85,7 +85,7 @@ const Deal: VFC<DealProps> = ({
           </Button>
         )}
 
-        {Boolean(!isCancelled && isConfirmed && isPlaced && !isFinished && onConfirmDeal) && (
+        {Boolean(!isCancelled && isConfirmed && isPlaced && !isFinished && onFinishDeal) && (
           <Button onClick={handleFinishDeal}>
             Finalizar
           </Button>
