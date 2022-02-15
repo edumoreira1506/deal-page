@@ -19,7 +19,10 @@ Example.args = {
       createdAt: new Date(),
       dealId: '',
       id: '',
-      metadata: {}
+      metadata: {
+        value: 15000,
+        description: 'Vou chamá-lo no whats app para trocar uma ideia'
+      }
     },
     {
       value: 'CONFIRMED',
