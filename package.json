@@ -3,7 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
-		"@cig-platform/backoffice-bff-client": "^0.0.35",
+		"@cig-platform/backoffice-bff-client": "^0.0.37",
 		"@cig-platform/enums": "^0.0.3",
 		"@cig-platform/types": "^0.0.26",
 		"@cig-platform/ui": "^0.1.110",

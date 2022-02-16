@@ -1,6 +1,7 @@
 import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
+import { BreederContactTypeEnum } from '@cig-platform/enums'
 
 import Deal from './Deal'
 
@@ -89,6 +90,14 @@ Example.args = {
     type: '',
     videos: {}
   },
+  breederContacts: [
+    {
+      breederId: '',
+      id: '',
+      type: BreederContactTypeEnum.WHATS_APP,
+      value: '(15) 99644-2031'
+    }
+  ],
   onCancelDeal: action('onCancelDeal'),
   onFinishDeal: action('onFinishDeal'),
   onConfirmDeal: action('onConfirmDeal'),

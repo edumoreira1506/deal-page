@@ -39,6 +39,7 @@ const DealContainer: VFC<DealContainerProps> = ({
       onCancelDeal={onCancelDeal}
       onConfirmDeal={onConfirmDeal}
       onFinishDeal={onFinishDeal}
+      breederContacts={data.breederContacts}
     />
   )
 }
