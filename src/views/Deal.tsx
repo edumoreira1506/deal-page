@@ -1,13 +1,14 @@
-import { IAdvertising, IBreeder, IDeal, IDealEvent, IPoultry } from '@cig-platform/types'
+import { IAdvertising, IBreeder, IBreederContact, IDeal, IDealEvent, IPoultry } from '@cig-platform/types'
 import React, { VFC, useMemo, useCallback } from 'react'
 import { History, DealInfo, Button } from '@cig-platform/ui'
-import { DealEventValueEnum } from '@cig-platform/enums'
+import { BreederContactTypeEnum, DealEventValueEnum } from '@cig-platform/enums'
 
 import { StyledButton, StyledContainer, StyledHistoryContainer } from './Deal.styles'
 import dealInfoFormatter from '../formatters/dealInfoFormatter'
 
 export type DealProps = {
   events?: IDealEvent[];
+  breederContacts?: IBreederContact[];
   poultry: IPoultry;
   advertising: IAdvertising;
   breeder: IBreeder;
@@ -25,7 +26,8 @@ const Deal: VFC<DealProps> = ({
   deal,
   onCancelDeal,
   onConfirmDeal,
-  onFinishDeal
+  onFinishDeal,
+  breederContacts = []
 }: DealProps) => {
   const dealInfoProps = useMemo(() => dealInfoFormatter({ deal, poultry, advertising, breeder }), [
     deal,
@@ -66,12 +68,30 @@ const Deal: VFC<DealProps> = ({
   const isConfirmed = useMemo(() => events.some(e => e.value === DealEventValueEnum.confirmed), [events])
   const isFinished = useMemo(() => events.some(e => e.value === DealEventValueEnum.received), [events])
 
+  const whatsAppContact = useMemo(() => breederContacts.find((c) => c.type === BreederContactTypeEnum.WHATS_APP), [breederContacts])
+
+  const handleWhatsAppClick = useCallback(() => {
+    if (whatsAppContact) {
+      window.location.assign(`https://api.whatsapp.com/send?phone=55${whatsAppContact.value.replace(/\D/g, '')}`)
+    }
+  }, [whatsAppContact])
+
   return (
     <StyledContainer>
       <DealInfo {...dealInfoProps} />
+
+      {Boolean(whatsAppContact && !isFinished && !isCancelled) && (
+        <StyledButton>
+          <Button onClick={handleWhatsAppClick}>
+            Chamar no whats app
+          </Button>
+        </StyledButton>
+      )}
+
       <StyledHistoryContainer>
         <History events={events} />
       </StyledHistoryContainer>
+
       <StyledButton>
         {Boolean(!isCancelled && !isFinished && isPlaced && onCancelDeal) && (
           <Button onClick={handleCancelDeal}>

@@ -3,7 +3,8 @@ import {
   IPoultry,
   IBreeder,
   IDeal,
-  IDealEvent
+  IDealEvent,
+  IBreederContact
 } from '@cig-platform/types'
 import { useQuery } from 'react-query'
 
@@ -15,6 +16,7 @@ interface Data {
   breeder: IBreeder;
   deal: IDeal;
   events: IDealEvent[];
+  breederContacts: IBreederContact[];
 }
 
 export default function useData(breederId: string, dealId: string) {
