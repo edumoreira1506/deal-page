@@ -1231,10 +1231,10 @@
   dependencies:
     express "^4.17.1"
 
-"@cig-platform/ui@^0.1.110":
-  version "0.1.110"
-  resolved "https://registry.yarnpkg.com/@cig-platform/ui/-/ui-0.1.110.tgz#557c221791296b7b27ca27501dfb9ae8d6943210"
-  integrity sha512-U/KHRvZLnsS4NvTnowa7jVp31fGJy0MHvEJZorrABzFUSmsfn+IuPVTPvoDaWv1UyTuhvIAwVE18H9JgJlb2kw==
+"@cig-platform/ui@^0.1.114":
+  version "0.1.114"
+  resolved "https://registry.yarnpkg.com/@cig-platform/ui/-/ui-0.1.114.tgz#408a2ad584164d5f6008fe1f82871e11e46bb01a"
+  integrity sha512-t8ptXh+v9mqHwVAG1M2P9yow4f7hBCwRux+eVBKzAh5+uRgE7j81KlLNVGeosGtV36OUoQQ9cM075CD7h2Uhew==
   dependencies:
     "@cig-platform/enums" "^0.0.3"
     "@cig-platform/types" "^0.0.26"

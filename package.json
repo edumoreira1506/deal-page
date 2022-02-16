@@ -6,7 +6,7 @@
 		"@cig-platform/backoffice-bff-client": "^0.0.37",
 		"@cig-platform/enums": "^0.0.3",
 		"@cig-platform/types": "^0.0.26",
-		"@cig-platform/ui": "^0.1.110",
+		"@cig-platform/ui": "^0.1.114",
 		"@testing-library/jest-dom": "^5.14.1",
 		"@testing-library/react": "^12.0.0",
 		"@testing-library/user-event": "^13.2.1",
