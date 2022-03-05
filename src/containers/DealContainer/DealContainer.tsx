@@ -9,6 +9,7 @@ export type DealContainerProps = {
   onConfirmDeal?: DealProps['onConfirmDeal'];
   onFinishDeal?: DealProps['onFinishDeal'];
   onCancelDeal?: DealProps['onCancelDeal'];
+  onReBuy?: DealProps['onReBuy'];
 }
 
 const DealContainer: VFC<DealContainerProps> = ({
@@ -16,7 +17,8 @@ const DealContainer: VFC<DealContainerProps> = ({
   dealId,
   onCancelDeal,
   onConfirmDeal,
-  onFinishDeal
+  onFinishDeal,
+  onReBuy
 }: DealContainerProps) => {
   const { data, isLoading } = useData(breederId, dealId)
 
@@ -39,6 +41,7 @@ const DealContainer: VFC<DealContainerProps> = ({
       onCancelDeal={onCancelDeal}
       onConfirmDeal={onConfirmDeal}
       onFinishDeal={onFinishDeal}
+      onReBuy={onReBuy}
       breederContacts={data.breederContacts}
     />
   )

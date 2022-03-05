@@ -101,4 +101,5 @@ Example.args = {
   onCancelDeal: action('onCancelDeal'),
   onFinishDeal: action('onFinishDeal'),
   onConfirmDeal: action('onConfirmDeal'),
+  onReBuy: action('onReBuy'),
 }

@@ -10,6 +10,7 @@ type Callbacks = {
   onConfirmDeal?: DealContainerProps['onConfirmDeal'];
   onFinishDeal?: DealContainerProps['onFinishDeal'];
   onCancelDeal?: DealContainerProps['onCancelDeal'];
+  onReBuy?: DealContainerProps['onReBuy'];
 }
 
 type Params = {
@@ -20,7 +21,7 @@ type Params = {
 (window as any).renderDealPage = (
   containerId: string,
   { breederId, dealId }: Params,
-  { onFinishDeal, onConfirmDeal, onCancelDeal }: Callbacks = {}
+  { onFinishDeal, onConfirmDeal, onCancelDeal, onReBuy }: Callbacks = {}
 ) => {
   const targetDocument = document.getElementById(containerId)
 
@@ -31,6 +32,7 @@ type Params = {
           onConfirmDeal={onConfirmDeal}
           onFinishDeal={onFinishDeal}
           onCancelDeal={onCancelDeal}
+          onReBuy={onReBuy}
           breederId={breederId}
           dealId={dealId}
         />

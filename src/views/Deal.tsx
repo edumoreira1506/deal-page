@@ -16,6 +16,7 @@ export type DealProps = {
   onConfirmDeal?: ({ advertisingId, poultryId, breederId, dealId }: { advertisingId: string; poultryId: string; breederId: string; dealId: string; }) => void;
   onFinishDeal?: ({ advertisingId, poultryId, breederId, dealId }: { advertisingId: string; poultryId: string; breederId: string; dealId: string; }) => void;
   onCancelDeal?: ({ advertisingId, poultryId, breederId, dealId }: { advertisingId: string; poultryId: string; breederId: string; dealId: string; }) => void;
+  onReBuy?: ({ advertisingId, poultryId, breederId }: { advertisingId: string; poultryId: string; breederId: string; }) => void;
 }
 
 const Deal: VFC<DealProps> = ({
@@ -27,6 +28,7 @@ const Deal: VFC<DealProps> = ({
   onCancelDeal,
   onConfirmDeal,
   onFinishDeal,
+  onReBuy,
   breederContacts = []
 }: DealProps) => {
   const dealInfoProps = useMemo(() => dealInfoFormatter({ deal, poultry, advertising, breeder }), [
@@ -35,6 +37,14 @@ const Deal: VFC<DealProps> = ({
     advertising,
     breeder
   ])
+
+  const handleReBuy = useCallback(() => {
+    onReBuy?.({ 
+      advertisingId: advertising?.id,
+      breederId: breeder?.id,
+      poultryId: poultry?.id
+    })
+  }, [onReBuy, advertising?.id, breeder?.id, poultry?.id])
 
   const handleCancelDeal = useCallback(() => {
     onCancelDeal?.({ 
@@ -84,6 +94,14 @@ const Deal: VFC<DealProps> = ({
         <StyledButton>
           <Button onClick={handleWhatsAppClick}>
             Chamar no whats app
+          </Button>
+        </StyledButton>
+      )}
+
+      {Boolean(isCancelled && onReBuy) && (
+        <StyledButton>
+          <Button onClick={handleReBuy}>
+            Refazer proposta
           </Button>
         </StyledButton>
       )}
