@@ -80,7 +80,7 @@ const Deal: VFC<DealProps> = ({
     <StyledContainer>
       <DealInfo {...dealInfoProps} />
 
-      {Boolean(whatsAppContact && !isFinished && !isCancelled) && (
+      {Boolean(whatsAppContact && !isFinished && !isCancelled && isConfirmed) && (
         <StyledButton>
           <Button onClick={handleWhatsAppClick}>
             Chamar no whats app
