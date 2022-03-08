@@ -47,6 +47,7 @@ Example.args = {
     price: 15000,
   },
   breeder: {
+    createdAt: new Date(),
     name: 'Criatório bacana',
     active: true,
     id: '',
@@ -88,7 +89,9 @@ Example.args = {
     register: '',
     tail: '',
     type: '',
-    videos: {}
+    videos: {},
+    forSale: false,
+    currentAdvertisingPrice: null
   },
   breederContacts: [
     {
