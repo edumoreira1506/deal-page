@@ -5,6 +5,7 @@
 	"dependencies": {
 		"@cig-platform/backoffice-bff-client": "^0.0.47",
 		"@cig-platform/enums": "^0.0.5",
+		"@cig-platform/factories": "^0.0.20",
 		"@cig-platform/types": "^0.0.33",
 		"@cig-platform/ui": "^0.1.132",
 		"@testing-library/jest-dom": "^5.16.2",
@@ -26,7 +27,7 @@
 	"scripts": {
 		"start": "start-storybook -p 6006 -s public",
 		"build": "react-app-rewired build",
-		"test": "echo 'No tests found'",
+		"test": "react-scripts test",
 		"eject": "react-scripts eject",
 		"lint": "eslint src",
 		"start:local": "react-app-rewired start",
