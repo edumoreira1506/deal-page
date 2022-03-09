@@ -533,4 +533,118 @@ describe('<Deal />', () => {
 
     expect(screen.queryByText('Finalizar')).not.toBeInTheDocument()
   })
+
+  it('renders cancel button with correctly text when is seller and deal is not confirmed', () => {
+    const onCancelDeal = jest.fn()
+    const onConfirmDeal = jest.fn()
+    const events = [
+      {
+        createdAt: new Date(),
+        dealId: '',
+        id: '',
+        metadata: {},
+        value: DealEventValueEnum.placed
+      },
+    ]
+
+    render(
+      <Deal
+        {...DEFAULT_PROPS}
+        events={events}
+        onCancelDeal={onCancelDeal}
+        onConfirmDeal={onConfirmDeal}
+      />
+    )
+
+    expect(screen.getByText('Negar proposta')).toBeInTheDocument()
+  })
+
+  it('renders cancel button with correctly text when is seller and deal is confirmed', () => {
+    const onCancelDeal = jest.fn()
+    const onConfirmDeal = jest.fn()
+    const events = [
+      {
+        createdAt: new Date(),
+        dealId: '',
+        id: '',
+        metadata: {},
+        value: DealEventValueEnum.placed
+      },
+      {
+        createdAt: new Date(),
+        dealId: '',
+        id: '',
+        metadata: {},
+        value: DealEventValueEnum.confirmed
+      }
+    ]
+
+    render(
+      <Deal
+        {...DEFAULT_PROPS}
+        events={events}
+        onCancelDeal={onCancelDeal}
+        onConfirmDeal={onConfirmDeal}
+      />
+    )
+
+    expect(screen.getByText('Cancelar venda')).toBeInTheDocument()
+  })
+
+  it('renders cancel button with correctly text when is buyer and deal is not confirmed', () => {
+    const onCancelDeal = jest.fn()
+    const onFinishDeal = jest.fn()
+    const events = [
+      {
+        createdAt: new Date(),
+        dealId: '',
+        id: '',
+        metadata: {},
+        value: DealEventValueEnum.placed
+      },
+    ]
+
+    render(
+      <Deal
+        {...DEFAULT_PROPS}
+        events={events}
+        onCancelDeal={onCancelDeal}
+        onFinishDeal={onFinishDeal}
+      />
+    )
+
+    expect(screen.getByText('Cancelar proposta')).toBeInTheDocument()
+  })
+
+  it('renders cancel button with correctly text when is seller and deal is confirmed', () => {
+    const onCancelDeal = jest.fn()
+    const onFinishDeal = jest.fn()
+    const events = [
+      {
+        createdAt: new Date(),
+        dealId: '',
+        id: '',
+        metadata: {},
+        value: DealEventValueEnum.placed
+      },
+      {
+        createdAt: new Date(),
+        dealId: '',
+        id: '',
+        metadata: {},
+        value: DealEventValueEnum.confirmed
+      }
+    ]
+
+    render(
+      <Deal
+        {...DEFAULT_PROPS}
+        events={events}
+        onCancelDeal={onCancelDeal}
+        onFinishDeal={onFinishDeal}
+      />
+    )
+
+    expect(screen.getByText('Cancelar compra')).toBeInTheDocument()
+  })
 })
