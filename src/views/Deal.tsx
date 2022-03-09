@@ -86,6 +86,25 @@ const Deal: VFC<DealProps> = ({
     }
   }, [whatsAppContact])
 
+  const cancelDealText = useMemo(() => {
+    const isSeller = Boolean(onConfirmDeal)
+    const isBuyer = Boolean(onFinishDeal)
+
+    if (isSeller) {
+      if (!isConfirmed) return 'Negar proposta'
+
+      return 'Cancelar venda'
+    }
+
+    if (isBuyer) {
+      if (!isConfirmed) return 'Cancelar proposta'
+
+      return 'Cancelar compra'
+    }
+
+    return 'Cancelar'
+  }, [onConfirmDeal, onFinishDeal, isConfirmed])
+
   return (
     <StyledContainer>
       <DealInfo {...dealInfoProps} />
@@ -113,7 +132,7 @@ const Deal: VFC<DealProps> = ({
       <StyledButton>
         {Boolean(!isCancelled && !isFinished && isPlaced && onCancelDeal) && (
           <Button onClick={handleCancelDeal}>
-            Cancelar
+            {cancelDealText}
           </Button>
         )}
 
