@@ -77,5 +77,8 @@
 	"description": "",
 	"repository": {},
 	"bugs": {},
-	"homepage": ""
+	"homepage": "",
+	"engines": {
+    "node": "16.14.0"
+  }
 }
