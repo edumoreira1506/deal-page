@@ -16,11 +16,12 @@ type Callbacks = {
 type Params = {
   breederId: string;
   dealId: string;
+  refetch?: boolean;
 }
 
 (window as any).renderDealPage = (
   containerId: string,
-  { breederId, dealId }: Params,
+  { breederId, dealId, refetch = false }: Params,
   { onFinishDeal, onConfirmDeal, onCancelDeal, onReBuy }: Callbacks = {}
 ) => {
   const targetDocument = document.getElementById(containerId)
@@ -35,6 +36,7 @@ type Params = {
           onReBuy={onReBuy}
           breederId={breederId}
           dealId={dealId}
+          refetch={refetch}
         />
       </QueryClientProvider>,
       targetDocument,

@@ -1,4 +1,4 @@
-import React, { VFC, useMemo } from 'react'
+import React, { VFC, useMemo, useEffect } from 'react'
 
 import useData from '../../hooks/useData'
 import Deal, { DealProps } from '../../views/Deal'
@@ -10,6 +10,7 @@ export type DealContainerProps = {
   onFinishDeal?: DealProps['onFinishDeal'];
   onCancelDeal?: DealProps['onCancelDeal'];
   onReBuy?: DealProps['onReBuy'];
+  refetch: boolean;
 }
 
 const DealContainer: VFC<DealContainerProps> = ({
@@ -18,9 +19,10 @@ const DealContainer: VFC<DealContainerProps> = ({
   onCancelDeal,
   onConfirmDeal,
   onFinishDeal,
-  onReBuy
+  onReBuy,
+  refetch
 }: DealContainerProps) => {
-  const { data, isLoading } = useData(breederId, dealId)
+  const { data, isLoading, refetch: refetchData } = useData(breederId, dealId)
 
   const formattedEvents = useMemo(() => data?.events?.map(e => ({ ...e, createdAt: new Date(e.createdAt) })), [
     data?.events
@@ -30,6 +32,12 @@ const DealContainer: VFC<DealContainerProps> = ({
     !data?.deal || !data?.poultry || !data?.events || !formattedEvents) {
     return null
   }
+
+  useEffect(() => {
+    if (refetch && refetchData) {
+      refetchData()
+    }
+  }, [refetch, refetchData])
 
   return (
     <Deal
