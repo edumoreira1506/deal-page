@@ -1,10 +1,9 @@
+import { queryClient } from '@cig-platform/data-helper'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { QueryClient, QueryClientProvider } from 'react-query'
+import { QueryClientProvider } from 'react-query'
 
 import DealContainer, { DealContainerProps } from './containers/DealContainer/DealContainer'
-
-const queryClient = new QueryClient()
 
 type Callbacks = {
   onConfirmDeal?: DealContainerProps['onConfirmDeal'];

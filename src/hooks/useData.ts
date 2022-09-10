@@ -6,7 +6,7 @@ import {
   IDealEvent,
   IBreederContact
 } from '@cig-platform/types'
-import { useQuery } from 'react-query'
+import { useData as useDataFromDataHelper } from '@cig-platform/data-helper'
 
 import BackofficeBffService from '../services/BackofficeBffService'
 
@@ -20,8 +20,10 @@ interface Data {
 }
 
 export default function useData(breederId: string, dealId: string) {
-  return useQuery<Data>(
-    ['getPoultryData', breederId, dealId],
-    () => BackofficeBffService.getDeal(breederId, dealId, window.localStorage.getItem('token') ?? '')
+  return useDataFromDataHelper<Data>(
+    'getPoultryData',
+    () => BackofficeBffService.getDeal(breederId, dealId, window.localStorage.getItem('token') ?? ''),
+    [breederId, dealId],
+    {}
   )
 }
