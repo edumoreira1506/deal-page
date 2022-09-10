@@ -28,16 +28,16 @@ const DealContainer: VFC<DealContainerProps> = ({
     data?.events
   ])
 
-  if (isLoading || !data?.advertising || !data?.breeder ||
-    !data?.deal || !data?.poultry || !data?.events || !formattedEvents) {
-    return null
-  }
-
   useEffect(() => {
     if (refetch && refetchData) {
       refetchData()
     }
   }, [refetch, refetchData])
+
+  if (isLoading || !data?.advertising || !data?.breeder ||
+    !data?.deal || !data?.poultry || !data?.events || !formattedEvents) {
+    return null
+  }
 
   return (
     <Deal
